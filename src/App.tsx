@@ -1,12 +1,23 @@
+import { ProtectedLayout } from "./components/ProtectedLayout"
+import { AuthProvider } from "./context/AuthProvider"
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
 function App() {
-
   return (
-    <>
-      <div>
-        <h1>Hello World</h1>
-      </div>
-    </>
+    <AuthProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route element={<ProtectedLayout />}>
+              <Route path="/moradores">
+
+              </Route>
+          </Route>
+          <Route path="/login">
+
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </AuthProvider>
   )
 }
 
